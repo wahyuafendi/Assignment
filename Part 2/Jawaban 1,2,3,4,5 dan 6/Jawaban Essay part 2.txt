@@ -1,0 +1,85 @@
+1.SharedFlow dan StateFlow adalah dua jenis aliran data di dalam Kotlin Flows, yang merupakan bagian dari Kotlin Coroutines. Berikut adalah perbedaan utama antara keduanya:
+Ada 7 Perbedaan antara SharedFlow dan Stateflow
+
+Immutability vs. Mutability:
+
+StateFlow: Immutabel. Setelah nilai diterapkan, itu tidak dapat diubah.
+SharedFlow: Mutable. Nilai dalam SharedFlow dapat diubah kapan saja.
+State Preservation:
+
+StateFlow: Memiliki konsep 'state preservation'. Ini berarti saat seorang pengamat (observer) bergabung dengan aliran, ia akan menerima nilai terbaru dari aliran tersebut.
+SharedFlow: Tidak memiliki konsep 'state preservation'. Pengamat akan menerima nilai yang dipublikasikan setelah mereka bergabung dengan aliran.
+Hot vs. Cold:
+
+StateFlow: Cold stream. Nilai hanya dipancarkan ketika ada pengamat yang aktif.
+SharedFlow: Hot stream. Nilai dipancarkan bahkan jika tidak ada pengamat yang aktif. Pengamat yang bergabung kemudian menerima nilai terbaru.
+Subtipe:
+
+StateFlow adalah subtipe dari MutableStateFlow, yang merupakan implementasi dari StateFlow yang dapat dimutasi.
+SharedFlow tidak memiliki subtipe seperti ini.
+Back Pressure:
+
+StateFlow: Tidak mendukung back pressure secara langsung.
+SharedFlow: Dukungan untuk back pressure melalui operator buffer, conflate, dan lainnya.
+Multi-Consumer:
+
+StateFlow: Hanya satu pengamat (observer) yang dapat bergabung dengan StateFlow.
+SharedFlow: Dapat memiliki banyak pengamat (multi-consumer).
+Kapan Digunakan:
+
+StateFlow: Cocok untuk mengirimkan satu nilai yang mewakili suatu state atau perubahan state.
+SharedFlow: Cocok untuk kasus di mana Anda ingin berbagi aliran data antara banyak komponen yang mungkin bergabung atau keluar dari aliran kapan saja. 
+
+
+
+2. Di Kotlin, terdapat lima scoped functions yang sering digunakan, yaitu:
+
+let:
+
+Digunakan untuk mengeksekusi blok kode pada objek non-null.
+Cara kerjanya adalah dengan memasukkan objek sebagai it ke dalam blok kode. Berguna untuk melakukan operasi pada objek dan mengembalikan nilai baru.
+run:
+
+Mengeksekusi blok kode pada objek tanpa perlu menyebutkan objek secara eksplisit.
+Cara kerjanya adalah dengan menggunakan receiver object (this), sehingga Anda bisa mengakses properti dan metode objek secara langsung.
+with:
+
+Mirip dengan run, tetapi membutuhkan objek sebagai argumen dan bukan receiver.
+Cara kerjanya adalah dengan menyebutkan objek di luar blok kode, kemudian menggunakan objek tersebut di dalam blok kode.
+apply:
+
+Digunakan untuk melakukan inisialisasi objek atau mengatur properti objek dengan gaya builder.
+Cara kerjanya adalah dengan menggunakan receiver object (this) dan mengizinkan Anda untuk menetapkan nilai properti objek dengan sintaks pendek.
+also:
+
+Mirip dengan let, tetapi mengembalikan objek itu sendiri daripada nilai yang dihasilkan dari blok kode.
+Cara kerjanya adalah dengan menyediakan objek sebagai it dan memungkinkan Anda untuk melakukan operasi sampingan pada objek tersebut tanpa mengubahnya.
+
+
+3. Unit test dan instrument test adalah dua jenis pengujian yang umum digunakan dalam pengembangan perangkat lunak. Berikut adalah perbedaan antara keduanya:
+
+Unit Test:
+
+Merupakan jenis pengujian yang dilakukan pada unit kecil dari kode, seperti fungsi atau kelas, secara terisolasi dari komponen lainnya.
+Biasanya dijalankan di lingkungan pengujian yang tidak memerlukan sumber daya eksternal seperti database, jaringan, atau perangkat keras.
+Tujuannya adalah untuk memastikan bahwa unit kode berperilaku sesuai dengan yang diharapkan dan dapat diuji secara otomatis dengan cepat dan efisien.
+Menggunakan stubs atau mock objects untuk mengisolasi unit yang diuji dari dependensi luar.
+
+Instrument Test:
+
+Merupakan jenis pengujian yang dilakukan pada aplikasi Android secara keseluruhan, termasuk interaksi dengan komponen Android seperti Activity, Fragment, Intent, dan lainnya.
+Dijalankan di atas perangkat fisik atau emulator Android, sehingga dapat mengakses sumber daya perangkat keras dan sistem operasi Android.
+Biasanya digunakan untuk menguji integrasi antara berbagai komponen aplikasi serta untuk memvalidasi perilaku aplikasi di lingkungan nyata.
+Memerlukan waktu yang lebih lama untuk dijalankan daripada unit test karena melibatkan interaksi dengan komponen Android yang sebenarnya.
+
+
+4. 
+View Binding adalah fitur yang diperkenalkan oleh Android Jetpack untuk memudahkan pengembang dalam mengikat (binding) tampilan UI (User Interface) dalam file XML dengan kode Kotlin
+atau Java. Ini memungkinkan pengembang untuk mengakses tampilan UI secara langsung dari kode tanpa perlu menggunakan metode findViewById() yang rentan terhadap kesalahan dan memakan waktu.
+Fitur ini menghasilkan kelas binding untuk setiap file layout XML dalam proyek yang diikatinya. Kelas binding ini menyediakan referensi langsung ke setiap tampilan yang dideklarasikan dalam
+file layout tersebut, memungkinkan pengembang untuk mengakses dan memanipulasi tampilan tersebut dengan aman dan efisien.
+
+
+5. C. Application Not Responding
+
+6. C. AndroidManifest.xml
